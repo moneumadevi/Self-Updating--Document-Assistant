@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run the app (Streamlit)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "streamlit",
+      "args": ["run", "app.py"],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "Check documents folder once (watcher --once)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/watcher.py",
+      "args": ["--once"],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "Run all tests (pytest)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "args": ["-v"],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    }
+  ]
+}

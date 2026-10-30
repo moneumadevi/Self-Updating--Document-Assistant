@@ -1,0 +1,20 @@
+# Streamlit settings for "Self Updating Documentation Assistant"
+# Streamlit reads this file automatically - no extra command needed.
+
+[theme]
+primaryColor = "#4F46E5"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F1F5F9"
+textColor = "#1F2937"
+font = "sans serif"
+
+[server]
+headless = true
+port = 8501
+# Listen on all interfaces so the app also works inside containers/previews.
+# On your own laptop you open http://localhost:8501 as usual.
+address = "0.0.0.0"
+maxUploadSize = 10
+
+[browser]
+gatherUsageStats = false

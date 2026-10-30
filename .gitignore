@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Virtual environment (re-create it with: python -m venv .venv)
+.venv/
+venv/
+
+# Generated search index - rebuilt automatically, no need to commit it
+index_store/
+
+# The documents/ folder ships with copies of the sample dataset so the app
+# works immediately. Files you upload there stay local; the generated index is
+# ignored above.
+
+# Streamlit secrets (not used by this project, but never commit secrets)
+.streamlit/secrets.toml
+
+# Tests + editor
+.pytest_cache/
+.coverage
+htmlcov/
+.DS_Store
+Thumbs.db

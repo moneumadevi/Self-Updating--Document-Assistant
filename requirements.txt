@@ -1,0 +1,20 @@
+# ---------------------------------------------------------------------------
+# Python packages for "Self Updating Documentation Assistant"
+#
+# Install everything with:
+#     pip install -r requirements.txt
+#
+# All packages are free and open source. No paid API, no API key.
+# ---------------------------------------------------------------------------
+
+# Web interface
+streamlit>=1.49,<2
+
+# TF-IDF vectorizer + cosine similarity (classic NLP, runs on CPU)
+scikit-learn>=1.4,<2
+
+# PDF text extraction
+pypdf>=4.0,<7
+
+# Test runner (needed for `python -m pytest`)
+pytest>=8.0

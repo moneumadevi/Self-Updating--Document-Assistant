@@ -1,0 +1,67 @@
+TF-IDF and Document Retrieval - Study Notes
+
+What is TF-IDF?
+
+TF-IDF stands for Term Frequency - Inverse Document Frequency. It is a numerical
+method that converts text into numbers so a computer can compare documents. Every
+word gets a weight. A word that appears often in one document but rarely in the
+other documents gets a high weight, because it is a good clue for that document.
+
+Term Frequency (TF) measures how often a word appears in a document. Inverse
+Document Frequency (IDF) measures how rare the word is across all documents. The
+final weight is TF multiplied by IDF. Common words like "the" and "is" appear in
+almost every document, so their IDF is low and they are usually removed using a
+stop-word list.
+
+What is a vector?
+
+After TF-IDF, every chunk becomes a long list of numbers, called a vector. The list
+has one position for every word in the vocabulary. Most positions are zero because a
+single passage uses only a small part of the vocabulary, so the data is stored as a
+sparse matrix to save memory.
+
+What is cosine similarity?
+
+Cosine similarity measures the angle between two vectors. If the angle is small the
+similarity is close to 1, which means the passage talks about the same words as the
+question. If the vectors share no words the similarity is 0. Cosine similarity is
+popular for text because it ignores the length of the document: a long document and
+a short document about the same topic still score high.
+
+How does question answering work with TF-IDF?
+
+1. The documents are split into small chunks of about 120 words.
+2. The TF-IDF vectorizer is fit on all chunks, so it learns the vocabulary and the
+   IDF weights.
+3. Each chunk is transformed into a vector and stored in a matrix.
+4. The user's question is transformed with the same vectorizer.
+5. Cosine similarity is computed between the question vector and every chunk vector.
+6. The highest scoring chunks are returned as the answer, together with the source
+   file name.
+
+Is TF-IDF machine learning?
+
+TF-IDF is a classical natural language processing technique. The vectorizer is fit
+on the corpus, which means it learns statistics such as document frequency from your
+data. It is not a neural network, it does not need a GPU, and it does not need a
+download of a large pre-trained model. Training happens in milliseconds and the
+result is fully explainable.
+
+Why chunks instead of whole documents?
+
+A whole document may cover ten topics, so its vector becomes an average and matches
+everything weakly. A small chunk covers one idea, so the similarity score becomes
+sharper and the quoted answer is short and readable.
+
+Limitations of TF-IDF
+
+TF-IDF matches words, not meaning. If the question says "car" and the document says
+"automobile", the score may be zero. Synonyms, spelling mistakes and very long
+questions can reduce accuracy. Vector embeddings from a neural model solve this, but
+they need a model download and more computing power.
+
+Why we still use it for a student project
+
+TF-IDF is fast, free, offline, deterministic and easy to explain in a viva. You can
+show the exact weights, the cosine score and the matched passage, and the result is
+reproducible on any laptop.
